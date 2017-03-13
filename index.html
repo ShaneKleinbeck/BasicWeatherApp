@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title></title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link href="index.css" rel="stylesheet">
+</head>
+<body>
+
+<section class="main">
+   <div class="container main-container">
+      <div class="container child-container">
+         <div class="row location-text">
+            <div class="col-sm-12" id="date"></div>
+         </div>
+         <div class="row weather-text">
+            <div class="col-sm-12">
+               <h2 id="temp">Temperature:</h2>
+            </div>
+            <div class="col-sm-6" id="max-temp">
+               <h3 id="temp">High:</h3>
+            </div>
+            <div class="col-sm-6" id="min-temp">
+               <h3 id="temp">Low:</h3>
+            </div>
+         </div>
+         <div class="row" id="weather-submit">
+            <input type="text" name="submit" id="location">
+            <button type="submit" name="submit" onclick="getWeather()">Get Weather</button>
+         </div>
+      </div>
+   </div>
+</section>
+
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="moment.js"></script>
+   <script src="index.js"></script>
+</body>
+</html>
