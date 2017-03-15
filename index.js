@@ -34,8 +34,10 @@ var getWeather = function(){
             dataType: 'jsonp',
             // Handle Success
             success: function(data){
+               var time = data['currently']['time'];
                // Create Date Using MomentJS
-               var date = moment.unix(1489434696).format('dddd | MMMM Mo');
+               var date = moment.unix(time).format('dddd | MMMM Do');
+               console.log(time, date);
    
                // Update HTML With Appropriate Data
                $('#date').html('<h1>' + date + '</h1>');
