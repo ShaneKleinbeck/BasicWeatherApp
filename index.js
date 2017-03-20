@@ -1,3 +1,8 @@
+$('#location').keypress(function(e){
+   if(e.keyCode === 13 || e.which === 13){
+      getWeather();
+   }
+});
 
 var getWeather = function(){
    // Retrive User Input
@@ -20,6 +25,8 @@ var getWeather = function(){
          var lng = data['results'][0]['geometry']['location']['lng'];
          var lat = data['results'][0]['geometry']['location']['lat'];
          var coordinates = lat + ',' + lng;
+
+         $('#site').html('<h1>' + data['results'][0]['formatted_address'] + '</h1>');
          
          // Send Coordinates Through Dark Sky API and Retrieve Weather Info
          $.ajax({
@@ -35,10 +42,11 @@ var getWeather = function(){
             // Handle Success
             success: function(data){
                // Create Date Using MomentJS
-               var date = moment.unix(1489434696).format('dddd | MMMM Mo');
+               var timezone = data['timezone'];
+               var date = moment.tz(timezone).format('dddd | MMMM Do');
    
                // Update HTML With Appropriate Data
-               $('#date').html('<h1>' + date + '</h1>');
+               $('#date').html('<h2>' + date + '</h2>');
                $('#temp').html('<h2>Currently: ' + Math.round(data['currently']['temperature']) + '</h2>');
                $('#max-temp').html('<h3>High: ' + Math.round(data['daily']['data'][0]['temperatureMax']) + '</h3>');
                $('#min-temp').html('<h3>Low: ' + Math.round(data['daily']['data'][0]['temperatureMin']) + '</h3>');
