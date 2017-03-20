@@ -41,7 +41,9 @@ var getWeather = function(){
             dataType: 'jsonp',
             // Handle Success
             success: function(data){
+               var time = data['currently']['time'];
                // Create Date Using MomentJS
+
                var timezone = data['timezone'];
                var date = moment.tz(timezone).format('dddd | MMMM Do');
    
